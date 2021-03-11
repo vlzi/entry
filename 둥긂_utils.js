@@ -1,5 +1,5 @@
-window.console.log("둥긂 util을 불러오는 중...");
-window.Entry.playground.blockMenu._generateCategoryCode =  (category) => {
+console.log("둥긂 util을 불러오는 중...");
+Entry.playground.blockMenu._generateCategoryCode =  ((category) => {
 	const _this = this;
 	if (!this._categoryData) return;
 	var code = this.code;
@@ -21,7 +21,7 @@ window.Entry.playground.blockMenu._generateCategoryCode =  (category) => {
 			delete t[0].x;
 	});
 	code.changeEvent.notify();
-}
+}).bind(Entry.playground.blockMenu);
 export function update()
 {
 	Entry.playground.blockMenu.svgBlockGroup.innerHTML = "";
