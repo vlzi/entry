@@ -16,7 +16,7 @@
 		const variable = vc.getVariableByName(script.getValue("VARIABLE"));
 		if (variable) return variable.getValue();
 		else util.raise("변수를 찾을 수 없습니다.");
-	}
+	});
 	util.update();
 	console.log("둥긂 불러오기 완료");
 	console.log(Entry.playground.blockMenu._categoryData);
