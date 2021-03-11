@@ -1,4 +1,4 @@
-export function generateCategoryCode(category) {
+function generateCategoryCode(category) {
 	const _this = this;
 	if (!this._categoryData) return;
 	var code = this.code;
@@ -21,14 +21,14 @@ export function generateCategoryCode(category) {
 	});
 	code.changeEvent.notify();
 }
-export function update()
+function update()
 {
 	Entry.playground.blockMenu.svgBlockGroup.innerHTML = "";
 	Entry.playground.blockMenu.code._data = [];
 	Entry.playground.blockMenu._categoryData.forEach(data => { if (data.category != "arduino")
 		 Entry.playground.blockMenu._generateCategoryCode(data.category); });//왜인지 arduino는 뻗는다.
 }
-export function change(name, data, func)
+function change(name, data, func)
 {
 	data.forEach(item => {
 		Entry.block[name].params[item.num] = {type: 'Block', accept: 'string'};
