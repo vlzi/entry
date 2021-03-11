@@ -1,6 +1,5 @@
 console.log("둥긂 util을 불러오는 중...");
-Entry.playground.blockMenu._generateCategoryCode =  (function gen(category) 
-{
+Entry.playground.blockMenu._generateCategoryCode =  (function gen(category) {
 	const _this = this;
 	if (!this._categoryData) return;
 	var code = this.code;
@@ -23,18 +22,20 @@ Entry.playground.blockMenu._generateCategoryCode =  (function gen(category)
 	});
 	code.changeEvent.notify();
 }).bind(Entry.playground.blockMenu);
-export function update()
-{
+export function update() {
 	Entry.playground.blockMenu.svgBlockGroup.innerHTML = "";
 	Entry.playground.blockMenu.code._data = [];
 	Entry.playground.blockMenu._categoryData.forEach(data => { if (data.category != "arduino")
 		 Entry.playground.blockMenu._generateCategoryCode(data.category); });//왜인지 arduino는 뻗는다.
 }
-export function change(name, data, func)
-{
+export function change(name, data, func) {
 	data.forEach(item => {
 		Entry.block[name].params[item.num] = {type: 'Block', accept: 'string'};
 		Entry.block[name].def.params[item.num] = item.default;
 	});
 	Entry.block[name].func = func;
+}
+export function raise(message) {
+	Entry.toast.alert("필드 값 오류", massage, true);
+	throw new Error();
 }
