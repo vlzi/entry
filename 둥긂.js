@@ -1,6 +1,6 @@
 (async () => {
 	console.log("둥긂 불러오는 중...");
-	const util = await import("./둥긂_utils.js");
+	const util = await import("https://vlzi.github.io/entry/둥긂_utils.js");//await import("./둥긂_utils.js");
 	const vc = Entry.variableContainer;
 	util.change("set_visible_answer", [{num : 0, default : "숨기기"}], (sprite, script) => {
 		const bool = script.getValue('BOOL', script);
@@ -14,7 +14,7 @@
 	});
 	util.change("get_variable", [{num : 0, default : vc.variables_.length ? vc.variables_[0].name_ : "대상 없음"}], (sprite, script) => {
 		const variable = vc.getVariableByName(script.getValue("VARIABLE"));
-		if (variable) return variable.getValue());
+		if (variable) return variable.getValue();
 		else util.raise("변수를 찾을 수 없습니다.");
 	}
 	util.update();
