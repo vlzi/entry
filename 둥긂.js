@@ -1,6 +1,6 @@
 (async () => {
-	await import("./둥긂_utils.js");
-	change("set_visible_answer", [{num : 0, default : "숨기기"}], (sprite, script) =>
+	const util = await import("./둥긂_utils.js");
+	util.change("set_visible_answer", [{num : 0, default : "숨기기"}], (sprite, script) =>
 	{
 		const bool = script.getValue('BOOL', script);
 		if (bool === '숨기기') {
@@ -14,5 +14,5 @@
 		}
 		return script.callReturn();
 	});
-	update();
+	util.update();
 })();
