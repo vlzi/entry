@@ -19,66 +19,7 @@
 		return script.callReturn();
 	});
 	util.change("get_variable", [{num : 0, default : fvname()}], (sprite, script) => getv(script.getValue("VARIABLE")).getValue());
-	util.change("change_variable", [{num : 0, default : fvname()}], function func(sprite, script) { //복붙하고 고쳤습니다.
-		var value = script.getValue('VALUE', script);
-		var fixed = 0;
-
-		if (value == false && typeof value === 'boolean') {
-		throw new Error('Type is not correct');
-		}
-
-		var variable = getv(script.getValue('VARIABLE', script));
-		var isRealTime_ = variable.isRealTime_;
-		var variableValue = variable.getValue();
-		var sumValue;
-
-		if (Entry.Utils.isNumber(value) && variable.isNumber()) {
-		value = Entry.parseNumber(value);
-		variableValue = Entry.parseNumber(variableValue);
-		fixed = Entry.getMaxFloatPoint([value, variable.getValue()]);
-		sumValue = new BigNumber(value).plus(variableValue).toNumber().toFixed(fixed);
-		} else {
-		sumValue = "".concat(variableValue).concat(value);
-		}
-
-		if (!isRealTime_) {
-		variable.setValue(sumValue);
-		return script.callReturn();
-		} else {
-			return new Promise( /*#__PURE__*/function () {
-				var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(resolve, reject) {
-					return _regenerator["default"].wrap(function _callee$(_context) {
-						while (1) {
-							switch (_context.prev = _context.next) {
-								case 0:
-								_context.prev = 0;
-								_context.next = 3;
-								return variable.setValue(sumValue);
-
-								case 3:
-								resolve();
-								_context.next = 9;
-								break;
-
-								case 6:
-								_context.prev = 6;
-								_context.t0 = _context["catch"](0);
-								reject(_context.t0);
-
-								case 9:
-								case "end":
-								return _context.stop();
-							}
-						}
-					}, _callee, null, [[0, 6]]);
-				}));
-
-				return function (_x, _x2) {
-					return _ref.apply(this, arguments);
-				};
-			}());
-		}
-	});
+	/*함수 복붙했습니다.*/util.change("change_variable", [{num : 0, default : fvname()}], function func(sprite, script) {var value = script.getValue('VALUE', script); var fixed = 0; if (value == false && typeof value === 'boolean') { throw new Error('Type is not correct'); } var variable = getv(script.getValue("VARIABLE", script)); var isRealTime_ = variable.isRealTime_; var variableValue = variable.getValue(); var sumValue; if (Entry.Utils.isNumber(value) && variable.isNumber()) { value = Entry.parseNumber(value); variableValue = Entry.parseNumber(variableValue); fixed = Entry.getMaxFloatPoint([value, variable.getValue()]); sumValue = new BigNumber(value).plus(variableValue).toNumber().toFixed(fixed); } else { sumValue = "".concat(variableValue).concat(value); } if (!isRealTime_) { variable.setValue(sumValue); return script.callReturn(); } else { return new Promise( /*#__PURE__*/function () { var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(resolve, reject) { return _regenerator["default"].wrap(function _callee$(_context) { while (1) { switch (_context.prev = _context.next) { case 0: _context.prev = 0; _context.next = 3; return variable.setValue(sumValue); case 3: resolve(); _context.next = 9; break; case 6: _context.prev = 6; _context.t0 = _context["catch"](0); reject(_context.t0); case 9: case "end": return _context.stop(); } } }, _callee, null, [[0, 6]]); })); return function (_x, _x2) { return _ref.apply(this, arguments); }; }()); } })
 	util.update();
 	console.log("둥긂 불러오기 완료");
 	console.log(Entry.playground.blockMenu._categoryData);
