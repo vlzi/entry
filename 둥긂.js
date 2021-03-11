@@ -2,11 +2,16 @@
 	console.log("둥긂 불러오는 중...");
 	const util = await import("https://vlzi.github.io/entry/둥긂_utils.js");//await import("./둥긂_utils.js");
 	const vc = Entry.variableContainer;
-	const fvname = () => vc.variables_.length ? vc.variables_[0].name_ : "대상 없음";
+	const fvname = () => vc.variables_.length ? vc.variables_[0].name_ : "대상 없음", flname = () => vc.lists_.length ? vc.lists_[0].name_ : "대상 없음";
 	function getv(name) {
 		const variable = vc.getVariableByName(name);
 		if (variable) return variable;
 		else util.raise("변수를 찾을 수 없습니다.");
+	}
+	function getl(name) {
+		const list = vc.getListByName(name);
+		if (list) return list;
+		else util.raise("리스트를 찾을 수 없습니다.");
 	}
 	util.change("set_visible_answer", [{num : 0, default : "숨기기"}], (sprite, script) => {
 		const bool = script.getValue('BOOL', script);
@@ -23,6 +28,16 @@
 	util.change("set_variable", [{num : 0, default : fvname()}], function func(sprite, script) { var value = script.getValue('VALUE', script); var variable = getv(script.getValue("VARIABLE", script)); var isRealTime_ = variable.isRealTime_; if (!isRealTime_) { variable.setValue(value); return script.callReturn(); } else { return new Promise( /*#__PURE__*/function () { var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(resolve, reject) { return _regenerator["default"].wrap(function _callee2$(_context2) { while (1) { switch (_context2.prev = _context2.next) { case 0: _context2.prev = 0; _context2.next = 3; return variable.setValue(value); case 3: resolve(); _context2.next = 9; break; case 6: _context2.prev = 6; _context2.t0 = _context2["catch"](0); reject(_context2.t0); case 9: case "end": return _context2.stop(); } } }, _callee2, null, [[0, 6]]); })); return function (_x3, _x4) { return _ref2.apply(this, arguments); }; }()); } });
 	util.change("show_variable", [{num : 0, default : fvname()}], function func(sprite, script) { var variableId = script.getField('VARIABLE', script); var variable = getv(script.getValue("VARIABLE", script)); variable.setVisible(true); variable.updateView(); return script.callReturn(); });
 	util.change("hide_variable", [{num : 0, default : fvname()}], function func(sprite, script) { var variableId = script.getField('VARIABLE', script); var variable = getv(script.getValue("VARIABLE", script)); variable.setVisible(false); return script.callReturn(); });
+	util.change("value_of_index_from_list", [{num : 1, default : flname()}],function func(sprite, script) { var index = script.getValue('INDEX', script); var list = getl(script.getValue("LIST", script)); index = Entry.getListRealIndex(index, list); var array = list.getArray(); if (!array || !Entry.Utils.isNumber(index) || index > array.length) { throw new Error('can not insert value to array'); } return array[index - 1].data; });
+	/*util.change("add_value_to_list"
+	util.change("remove_value_from_list"
+	util.change("insert_value_to_list"
+	util.change("change_value_list_index"
+	util.change("length_of_list"
+	util.change("is_included_in_list"
+	util.change("show_list"
+	util.change("hide_list"*/
+		    
 	util.update();
 	console.log("둥긂 불러오기 완료");
 	console.log(Entry.playground.blockMenu._categoryData);
