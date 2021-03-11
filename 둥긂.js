@@ -16,7 +16,7 @@
 		}
 		return script.callReturn();
 	});
-	util.change("get_variable", [{num : 0, default : vc.variables_.length ? vc.variables[0].name_ : "대상 없음"}], (sprite, script) =>
+	util.change("get_variable", [{num : 0, default : vc.variables_.length ? vc.variables_[0].name_ : "대상 없음"}], (sprite, script) =>
 		    vc.getVariableByName(script.getValue("VARIABLE")).getValue());
 	util.update();
 	console.log("둥긂 불러오기 완료");
