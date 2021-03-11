@@ -1,4 +1,4 @@
-window.Entry.playground.blockMenu._generateCategoryCode = function (category) {
+export function generateCategoryCode(category) {
 	const _this = this;
 	if (!this._categoryData) return;
 	var code = this.code;
