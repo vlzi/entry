@@ -1,3 +1,4 @@
+console.log("둥긂 util을 불러오는 중...");
 Entry.playground.blockMenu._generateCategoryCode =  (category) => {
 	const _this = this;
 	if (!this._categoryData) return;
