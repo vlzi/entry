@@ -27,6 +27,9 @@ export function update() {
 	Entry.playground.blockMenu.code._data = [];
 	Entry.playground.blockMenu._categoryData.forEach(data => { if (data.category != "arduino")
 		 Entry.playground.blockMenu._generateCategoryCode(data.category); });//왜인지 arduino는 뻗는다.
+	const projectData = Entry.exportProject();
+	Entry.clearProject();
+	Entry.loadProject(projectData);
 }
 export function change(name, data, func) {
 	data.forEach(item => {
