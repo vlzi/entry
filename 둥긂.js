@@ -45,39 +45,38 @@
 		variable.setValue(sumValue);
 		return script.callReturn();
 		} else {
-		return new Promise( /*#__PURE__*/function () {
-		var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(resolve, reject) {
-		return _regenerator["default"].wrap(function _callee$(_context) {
-		  while (1) {
-		    switch (_context.prev = _context.next) {
-		      case 0:
-			_context.prev = 0;
-			_context.next = 3;
-			return variable.setValue(sumValue);
+			return new Promise( /*#__PURE__*/function () {
+				var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(resolve, reject) {
+					return _regenerator["default"].wrap(function _callee$(_context) {
+						while (1) {
+							switch (_context.prev = _context.next) {
+								case 0:
+								_context.prev = 0;
+								_context.next = 3;
+								return variable.setValue(sumValue);
 
-		      case 3:
-			resolve();
-			_context.next = 9;
-			break;
+								case 3:
+								resolve();
+								_context.next = 9;
+								break;
 
-		      case 6:
-			_context.prev = 6;
-			_context.t0 = _context["catch"](0);
-			reject(_context.t0);
+								case 6:
+								_context.prev = 6;
+								_context.t0 = _context["catch"](0);
+								reject(_context.t0);
 
-		      case 9:
-		      case "end":
-			return _context.stop();
-		    }
-		  }
-		}, _callee, null, [[0, 6]]);
-		}));
+								case 9:
+								case "end":
+								return _context.stop();
+							}
+						}
+					}, _callee, null, [[0, 6]]);
+				}));
 
-		return function (_x, _x2) {
-		return _ref.apply(this, arguments);
-		};
-		}());
-		}
+				return function (_x, _x2) {
+					return _ref.apply(this, arguments);
+				};
+			}());
 		}
 	});
 	util.update();
