@@ -36,6 +36,6 @@ export function change(name, data, func) {
 	Entry.block[name].func = func;
 }
 export function raise(message) {
-	Entry.toast.alert("필드 값 오류", massage, true);
+	Entry.toast.alert("필드 값 오류", message, true);
 	throw new Error();
 }
