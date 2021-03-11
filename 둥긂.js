@@ -2,7 +2,7 @@
 	console.log("둥긂 불러오는 중...");
 	const util = await import("https://vlzi.github.io/entry/둥긂_utils.js");//await import("./둥긂_utils.js");
 	const vc = Entry.variableContainer;
-	const fvname = () => vc.variables_.length ? vc.variables_[0].name : "대상 없음";
+	const fvname = () => vc.variables_.length ? vc.variables_[0].name_ : "대상 없음";
 	function getv(name) {
 		const variable = vc.getVariableByName(name);
 		if (variable) return variable;
