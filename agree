@@ -1,5 +1,5 @@
 async function agree(){
-  fetch("https://playentry.org/graphql", { "headers":{"content-type": "application/json"},
+  await fetch("https://playentry.org/graphql", { "headers":{"content-type": "application/json"},
     "body": JSON.stringify({"query":"mutation CREATE_AGREE($content: String, $target: String) {
       createAgree(content: $content, target: $target){id} }",
     "operationName":"CREATE_AGREE","variables":{"content":'동의합니'+String.fromCharCode(45796+Math.floor(Math.random()*20)),
